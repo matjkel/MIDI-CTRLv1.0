@@ -6,6 +6,7 @@ https://webaudio.github.io/web-midi-api/, <br>
 https://webaudio.github.io/web-audio-api/ <br>
 
 <h3>general notes</h3><br> 
+<em>Rough draft, please excuse the bugs :)</em> <br>
 You will need to run a simple server to avoid CORS error <br>
 Please feel free to fork and add you're own features as you see fit <br>
 
