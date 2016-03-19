@@ -10,4 +10,5 @@ You will need to run a simple server to avoid CORS error <br>
 Please feel free to fork and add you're own features as you see fit <br>
 
 <h3>credits</h3> <br>
-Thanks to Keith McMillen, whose awesome tutorials served as a springboard <br> into the wonderful world of making music in the browser. 
+Thanks to Keith McMillen, whose awesome tutorials served as a springboard <br> into the wonderful world of making music in the browser. <br>
+Thanks to Mad Zach for the samples!!
