@@ -1,6 +1,5 @@
 # MIDI-CTRLv1.0
-simple midi controller app that let's you play your MIDI in the browser
-//////////////////////////////////////////////////////////////////////
+<h1>simple midi controller app that let's you play your MIDI in the browser</h1>
 
 resources :
 https://webaudio.github.io/web-midi-api/, https://webaudio.github.io/web-audio-api/
