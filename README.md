@@ -1,8 +1,15 @@
 # MIDI-CTRLv1.0
-<h1>simple midi controller app that let's you play your MIDI in the browser</h1>
+A simple midi controller app that let's you play your MIDI in the browser 
 
-resources :
-https://webaudio.github.io/web-midi-api/, https://webaudio.github.io/web-audio-api/
+<h2>resources</h2><br>
+https://webaudio.github.io/web-midi-api/, <br>
+https://webaudio.github.io/web-audio-api/ <br>
 
-please feel free to fork and add you're own features as you see fit
-Also, cred to Kieth McMillen, whose awesome tutorial was my inspiration and starting point for this.
+<h3>general notes</h3><br> 
+You will need to run a simple server to avoid CORS <br>
+Please feel free to fork and add you're own features as you see fit <br>
+
+<h3>credits</h3> <br>
+Thanks to Keith McMillen, whose awesome tutorials served as a springboard <br> into the wonderful world of making music in the browser. 
+
+<h5>v1.1 coming soon</h5>
