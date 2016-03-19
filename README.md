@@ -6,10 +6,8 @@ https://webaudio.github.io/web-midi-api/, <br>
 https://webaudio.github.io/web-audio-api/ <br>
 
 <h3>general notes</h3><br> 
-You will need to run a simple server to avoid CORS <br>
+You will need to run a simple server to avoid CORS error <br>
 Please feel free to fork and add you're own features as you see fit <br>
 
 <h3>credits</h3> <br>
 Thanks to Keith McMillen, whose awesome tutorials served as a springboard <br> into the wonderful world of making music in the browser. 
-
-<h5>v1.1 coming soon</h5>
