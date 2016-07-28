@@ -1,4 +1,4 @@
-<!-- # MIDI-CTRLv1.0
+MIDI-CTRLv1.0
 A simple midi controller app that let's you play your 16 pad MIDI in the browser
 
 <h2>resources</h2><br>
@@ -22,4 +22,3 @@ Thanks to Mad Zach for the samples!!
   <li> Add more sounds </li>
   <li> Add audio input ability (sound from browser or live instrument) </li>
 </ol>
- -->
