@@ -5,19 +5,13 @@ var analyser     = context.createAnalyser();
 var btnBox       = document.getElementById('content');
 var btn          = document.getElementsByClassName('button');
 
-// var element = document.getElementById("analyser_render");
-// element.style.position = 'absolute';
 
-// var mediaElement = document.getElementById('pad');
-// var sourceNode = context.createMediaElementSource(mediaElement);
-// sourceNode.connect(bufferNode);
-
-var data, 
-    cmd, 
-    chnl, 
-    type, 
-    note, 
-    vel, 
+var data,
+    cmd,
+    chnl,
+    type,
+    note,
+    vel,
     midi;
 
 var sampleMap = {
@@ -25,21 +19,21 @@ var sampleMap = {
     note2: 2,
     note3: 3,
     note4: 4,
-    note5: 5, 
+    note5: 5,
     note6: 6,
     note7: 7,
     note8: 8,
     note9: 9,
-    note10: 15, 
+    note10: 15,
     note11: 11,
     note12: 12,
     note13: 13,
     note14: 14,
     note15: 15,
-    note16: 16, 
+    note16: 16,
 };
 
-// request MIDI access to get this party started !! 
+// request MIDI access to get this party started !!
 if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess({
         sysex: false
@@ -48,7 +42,7 @@ if (navigator.requestMIDIAccess) {
     alert("No MIDI fun for you");
 }
 
-// prepare audio files
+// loop through all media to prepare audio files
 for (var i = 0; i < btn.length; i++) {
     addAudio(btn[i]);
     console.log("preparing files:")
@@ -74,15 +68,17 @@ function onMIDIMessage(event) {
     vel = data[2];
 
     switch (type) {
-        case 144: // MIDI noteOn message 
+      // MIDI noteOn message
+        case 144:
              noteOn(note, vel);
              console.log("HE HIT ME!!")
              break;
-        case 128: // MIDI noteOff message 
+      // MIDI noteOff message
+        case 128:
             noteOff(note, vel);
             break;
     }
-    console.log('MIDI data ', data); // DON'T FORGET TO UNCOMMENT!!! !!
+    console.log('MIDI data ', data);
 }
 
 function onStateChange(event) {
@@ -93,13 +89,14 @@ function onStateChange(event) {
     if (type == "input") console.log("name", name, "port", port, "state", state);
 }
 
+// logs controller info to console
 function listInputs(inputs) {
     var input = inputs.value;
     console.log("Input port : [ type:'" + input.type + "' id: '" + input.id +
         "' Yo, BOI!!, You be playin' wit a(n) " + input.name +
         "', version: '" + input.version + "']");
 }
-// PLAY YOUR SOUNDS 
+// PLAY YOUR SOUNDS; helper functions
 function noteOn(midiNote, vel) {
     player(midiNote, vel);
 }
@@ -112,7 +109,7 @@ function player(note, vel) {
     var sample = sampleMap['note' + note];
     if (sample) {
         // debugger;
-        if (type == (0x80 & 0xf0) || vel == 0) { 
+        if (type == (0x80 & 0xf0) || vel == 0) {
             btn[sample - 1].classList.remove('active');
             return;
         }
@@ -125,7 +122,7 @@ function player(note, vel) {
 function onMIDIFailure(e) {
     console.log("No access to MIDI devices or you're on the wrong browser" + e);
 }
-// decode your sounds
+// decode your sounds, using xml
 function loadAudio(object, url) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
@@ -136,35 +133,31 @@ function loadAudio(object, url) {
         context.decodeAudioData(request.response, function (buffer) {
             object.buffer = buffer;
         });
-        // context.decodeAudioData().then(function(decodedData){
-        // // do yo thang
-        // });
     }
     request.send();
-    
 }
-// 
 function addAudio(object) {
     object.name = object.id;
     object.source = object.dataset.sound;
     loadAudio(object, object.source);
-    // console.log("I've been called: ", object, object.source)
+
     object.play = function (volume) {
-        var s = context.createBufferSource();
-        var g = context.createGain();
+        var source = context.createBufferSource();
+        var gain = context.createGain();
         var v;
-        s.buffer = object.buffer;
+        source.buffer = object.buffer;
         if (volume) {
-            s.connect(g);
-            g.connect(context.destination); // every source needs a destination
+            source.connect(gain);
+            // every source needs a destination
+            gain.connect(context.destination);
         } else {
-            s.connect(context.destination);
+            source.connect(context.destination);
         }
-        s.start();
-        object.s = s;
+        source.start();
+        object.source = source;
     }
 }
-
+// more helper functions
 function rangeMap(x, a1, a2, b1, b2) {
     return ((x - a1) / (a2 - a1)) * (b2 - b1) + b1;
 }
