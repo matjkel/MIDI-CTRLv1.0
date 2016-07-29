@@ -118,7 +118,7 @@ function player(note, vel) {
         // debugger;
     }
 }
-
+// handle error 
 function onMIDIFailure(e) {
     console.log("No access to MIDI devices or you're on the wrong browser" + e);
 }
