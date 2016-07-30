@@ -111,14 +111,14 @@ function noteOff(midiNote, vel) {
 function player(note, vel) {
     let sample = sampleMap['note' + note];
     if (sample) {
-        // debugger;
+
         if (type == (0x80 & 0xf0) || vel == 0) {
             btn[sample - 1].classList.remove('active');
             return;
         }
         btn[sample - 1].classList.add('active');
         btn[sample - 1].play(vel);
-        // debugger;
+
     }
 }
 // handle error
@@ -139,6 +139,7 @@ function loadAudio(object, url) {
     }
     request.send();
 }
+
 function addAudio(object) {
     object.name = object.id;
     object.source = object.dataset.sound;
