@@ -1,6 +1,7 @@
-
+// create new audio context
 let AudioContext = AudioContext;
 let context      = new AudioContext();
+// WIP TODO add HTML Canvas to create audio visualizer
 let analyser     = context.createAnalyser();
 let btnBox       = document.getElementById('content');
 let btn          = document.getElementsByClassName('button');
