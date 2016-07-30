@@ -3,8 +3,8 @@ A simple midi controller app that let's you play your 16 pad MIDI in the browser
 
 <h2>resources</h2><br>
 <ol>
-  <li><a href='https://webaudio.github.io/web-midi-api/'  target="_blank"> Web MIDI API </a> </li> <br>
-  <li><a href='https://webaudio.github.io/web-audio-api/'  target="_blank"> Web Audio API </a> </li> <br>
+  <li><a href="https://webaudio.github.io/web-midi-api/"  target="_blank"> Web MIDI API </a> </li> <br>
+  <li><a href="https://webaudio.github.io/web-audio-api/"  target="_blank"> Web Audio API </a> </li> <br>
 </ol>
 
 <h3>general notes</h3><br>
