@@ -12,7 +12,7 @@ Please feel free to fork and add you're own features as you see fit <br>
 
 <h3>credits</h3><br>
 Thanks to Keith McMillen, whose awesome tutorials served as a springboard <br> into the wonderful world of making music in the browser. <br>
-Thanks to Mad Zach for the samples!!
+Thanks to Mad Zach (http://djtechtools.com/) for the samples!!
 
 <h4> TODO: </h4><br>
 <ol>
