@@ -56,9 +56,10 @@ function onMIDISuccess(midiAccess) {
         input.value.onmidimessage = onMIDIMessage;
         listInputs(input);
     }
+    // AudioContext interface called when state change event fires
     midi.onstatechange = onStateChange;
 }
-
+// TODO fix onMIDIMessage
 function onMIDIMessage(event) {
 
     data = event.data,
@@ -82,6 +83,7 @@ function onMIDIMessage(event) {
     console.log('MIDI data ', data);
 }
 
+// logs the current state to the console
 function onStateChange(event) {
     let port = event.port,
         state = port.state,
