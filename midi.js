@@ -1,12 +1,12 @@
 
-var AudioContext = AudioContext;
-var context      = new AudioContext();
-var analyser     = context.createAnalyser();
-var btnBox       = document.getElementById('content');
-var btn          = document.getElementsByClassName('button');
+let AudioContext = AudioContext;
+let context      = new AudioContext();
+let analyser     = context.createAnalyser();
+let btnBox       = document.getElementById('content');
+let btn          = document.getElementsByClassName('button');
 
 
-var data,
+let data,
     cmd,
     chnl,
     type,
@@ -14,7 +14,7 @@ var data,
     vel,
     midi;
 
-var sampleMap = {
+let sampleMap = {
     note1: 1,
     note2: 2,
     note3: 3,
@@ -43,15 +43,15 @@ if (navigator.requestMIDIAccess) {
 }
 
 // loop through all media to prepare audio files
-for (var i = 0; i < btn.length; i++) {
+for (let i = 0; i < btn.length; i++) {
     addAudio(btn[i]);
     console.log("preparing files:")
 }
 
 function onMIDISuccess(midiAccess) {
     midi = midiAccess;
-    var inputs = midi.inputs.values();
-    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+    let inputs = midi.inputs.values();
+    for (let input = inputs.next(); input && !input.done; input = inputs.next()) {
         input.value.onmidimessage = onMIDIMessage;
         listInputs(input);
     }
@@ -82,7 +82,7 @@ function onMIDIMessage(event) {
 }
 
 function onStateChange(event) {
-    var port = event.port,
+    let port = event.port,
         state = port.state,
         name = port.name,
         type = port.type;
@@ -91,7 +91,7 @@ function onStateChange(event) {
 
 // logs controller info to console
 function listInputs(inputs) {
-    var input = inputs.value;
+    let input = inputs.value;
     console.log("Input port : [ type:'" + input.type + "' id: '" + input.id +
         "' Yo, BOI!!, You be playin' wit a(n) " + input.name +
         "', version: '" + input.version + "']");
@@ -106,7 +106,7 @@ function noteOff(midiNote, vel) {
 }
 
 function player(note, vel) {
-    var sample = sampleMap['note' + note];
+    let sample = sampleMap['note' + note];
     if (sample) {
         // debugger;
         if (type == (0x80 & 0xf0) || vel == 0) {
@@ -118,13 +118,13 @@ function player(note, vel) {
         // debugger;
     }
 }
-// handle error 
+// handle error
 function onMIDIFailure(e) {
     console.log("No access to MIDI devices or you're on the wrong browser" + e);
 }
 // decode your sounds, using xml
 function loadAudio(object, url) {
-    var request = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
     request.open('GET', url, true);
     console.log("url: ", url)
     request.responseType = 'arraybuffer';
@@ -142,9 +142,9 @@ function addAudio(object) {
     loadAudio(object, object.source);
 
     object.play = function (volume) {
-        var source = context.createBufferSource();
-        var gain = context.createGain();
-        var v;
+        let source = context.createBufferSource();
+        let gain = context.createGain();
+        let v;
         source.buffer = object.buffer;
         if (volume) {
             source.connect(gain);
