@@ -1,6 +1,6 @@
 
 html {
-    background-image: url('dpunk2.jpg');
+    background-image: url('../dpunk2.jpg');
     background-repeat: no-repeat;
 }
 canvas{
@@ -16,7 +16,7 @@ h1{
 .controller {
     padding-top: 5px;
     padding-bottom: 3px;
-    min-width:590px; 
+    min-width:590px;
     max-width:510px;
     margin:10px;
 }
