@@ -1,6 +1,6 @@
 // create new audio context
-var AudioContext = AudioContext;
 var context      = new AudioContext();
+var AudioContext = AudioContext;
 // WIP TODO add HTML Canvas to create audio visualizer
 var analyser     = context.createAnalyser();
 var btnBox       = document.getElementById('content');
