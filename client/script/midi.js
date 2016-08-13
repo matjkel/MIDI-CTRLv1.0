@@ -1,13 +1,13 @@
 // create new audio context
-const AudioContext = AudioContext;
-const context      = new AudioContext();
+var AudioContext = AudioContext;
+var context      = new AudioContext();
 // WIP TODO add HTML Canvas to create audio visualizer
-const analyser     = context.createAnalyser();
-const btnBox       = document.getElementById('content');
-const btn          = document.getElementsByClassName('button');
+var analyser     = context.createAnalyser();
+var btnBox       = document.getElementById('content');
+var btn          = document.getElementsByClassName('button');
 
 
-const data,
+let data,
     cmd,
     chnl,
     type,
@@ -15,7 +15,7 @@ const data,
     vel,
     midi;
 
-const sampleMap = {
+let sampleMap = {
     note1: 1,
     note2: 2,
     note3: 3,
