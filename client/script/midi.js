@@ -7,7 +7,7 @@ var btnBox       = document.getElementById('content');
 var btn          = document.getElementsByClassName('button');
 
 
-let data,
+var data,
     cmd,
     chnl,
     type,
@@ -15,7 +15,7 @@ let data,
     vel,
     midi;
 
-let sampleMap = {
+var sampleMap = {
     note1: 1,
     note2: 2,
     note3: 3,
@@ -44,7 +44,7 @@ if (navigator.requestMIDIAccess) {
 }
 
 // loop through all media to prepare audio files
-for (let i = 0; i < btn.length; i++) {
+for (var i = 0; i < btn.length; i++) {
     addAudio(btn[i]);
     console.log("preparing files:")
 }
@@ -52,7 +52,7 @@ for (let i = 0; i < btn.length; i++) {
 function onMIDISuccess(midiAccess) {
     midi = midiAccess;
     let inputs = midi.inputs.values();
-    for (let input = inputs.next(); input && !input.done; input = inputs.next()) {
+    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
         input.value.onmidimessage = onMIDIMessage;
         listInputs(input);
     }
@@ -85,7 +85,7 @@ function onMIDIMessage(event) {
 
 // logs the current state to the console
 function onStateChange(event) {
-    let port = event.port,
+    var port = event.port,
         state = port.state,
         name = port.name,
         type = port.type;
@@ -94,7 +94,7 @@ function onStateChange(event) {
 
 // logs controller info to console
 function listInputs(inputs) {
-    let input = inputs.value;
+    var input = inputs.value;
     console.log("Input port : [ type:'" + input.type + "' id: '" + input.id +
         "' Yo, BOI!!, You be playin' wit a(n) " + input.name +
         "', version: '" + input.version + "']");
@@ -109,7 +109,7 @@ function noteOff(midiNote, vel) {
 }
 
 function player(note, vel) {
-    let sample = sampleMap['note' + note];
+    var sample = sampleMap['note' + note];
     if (sample) {
 
         if (type == (0x80 & 0xf0) || vel == 0) {
@@ -127,7 +127,7 @@ function onMIDIFailure(e) {
 }
 // decode your sounds, using xml
 function loadAudio(object, url) {
-    let request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
     request.open('GET', url, true);
     console.log("url: ", url)
     request.responseType = 'arraybuffer';
@@ -146,9 +146,9 @@ function addAudio(object) {
     loadAudio(object, object.source);
 
     object.play = function (volume) {
-        let source = context.createBufferSource();
-        let gain = context.createGain();
-        let v;
+        var source = context.createBufferSource();
+        var gain = context.createGain();
+        var v;
         source.buffer = object.buffer;
         if (volume) {
             source.connect(gain);
