@@ -2,8 +2,7 @@
 var AudioContext = AudioContext;
 var context      = new AudioContext();
 // WIP TODO add HTML Canvas to create audio visualizer
-var analyser     = context.createAnalyser();
-var btnBox       = document.getElementById('content');
+// var analyser     = context.createAnalyser();
 var btn          = document.getElementsByClassName('button');
 
 
