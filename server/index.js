@@ -9,9 +9,9 @@ const assetFolder = Path.resolve(__dirname, '../client/');
 app.use(express.static(assetFolder));
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
-app.listen(port || 4000, function(){
+app.listen(port, function(){
   console.log("Listening on port", port)
   console.log("MAKE SOME NOISE")
 });
