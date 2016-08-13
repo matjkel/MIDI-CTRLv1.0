@@ -51,7 +51,7 @@ for (var i = 0; i < btn.length; i++) {
 
 function onMIDISuccess(midiAccess) {
     midi = midiAccess;
-    let inputs = midi.inputs.values();
+    var inputs = midi.inputs.values();
     for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
         input.value.onmidimessage = onMIDIMessage;
         listInputs(input);
