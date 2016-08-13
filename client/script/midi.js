@@ -42,7 +42,11 @@ if (navigator.requestMIDIAccess) {
 } else {
     alert("No MIDI fun for you");
 }
-
+// add mouse click playability
+for (var i = 0; i < btn.length; i++) {
+  btn[i].addEventListener('mousedown', clickPlayOn);
+  btn[i].addEventListener('mouseup', clickPlayOff);
+}
 // loop through all media to prepare audio files
 for (var i = 0; i < btn.length; i++) {
     addAudio(btn[i]);
@@ -83,6 +87,15 @@ function onMIDIMessage(event) {
     console.log('MIDI data ', data);
 }
 
+function clickPlayOn(e) {
+    e.target.classList.add('active');
+    e.target.play();
+}
+
+function clickPlayOff(e) {
+    e.target.classList.remove('active');
+}
+
 // logs the current state to the console
 function onStateChange(event) {
     var port = event.port,
@@ -99,7 +112,7 @@ function listInputs(inputs) {
         "' Yo, BOI!!, You be playin' wit a(n) " + input.name +
         "', version: '" + input.version + "']");
 }
-// PLAY YOUR SOUNDS; helper functions
+// PLAY YOUR SOUNDS ----> helper functions
 function noteOn(midiNote, vel) {
     player(midiNote, vel);
 }
@@ -148,7 +161,7 @@ function addAudio(object) {
     object.play = function (volume) {
         var source = context.createBufferSource();
         var gain = context.createGain();
-        var v;
+        // var v;
         source.buffer = object.buffer;
         if (volume) {
             source.connect(gain);
@@ -162,10 +175,10 @@ function addAudio(object) {
     }
 }
 // more helper functions
-function rangeMap(x, a1, a2, b1, b2) {
-    return ((x - a1) / (a2 - a1)) * (b2 - b1) + b1;
-}
-
-function frequencyFromNoteNumber(note) {
-    return 440 * Math.pow(2, (note - 69) / 12);
-}
+// function rangeMap(x, a1, a2, b1, b2) {
+//     return ((x - a1) / (a2 - a1)) * (b2 - b1) + b1;
+// }
+//
+// function frequencyFromNoteNumber(note) {
+//     return 440 * Math.pow(2, (note - 69) / 12);
+// }
