@@ -4,7 +4,8 @@
   "description": "An easy-to-use 16-pad MIDI controller that lets you make music in the browser",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "prod": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/matjkel/MIDI-CTRLv1.0#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "webpack": "^1.12.14"
   },
   "devDependencies": {}
 }
