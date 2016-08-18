@@ -1,5 +1,5 @@
 // create new audio context
-var AudioContext = AudioContext;
+var AudioContext = AudioContext || webkitAudioContext;
 var context      = new AudioContext();
 // WIP TODO add HTML Canvas to create audio visualizer
 // var analyser     = context.createAnalyser();

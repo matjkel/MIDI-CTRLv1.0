@@ -1,6 +1,7 @@
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
-var debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
   context: path.join(__dirname, "/"),
@@ -11,6 +12,13 @@ module.exports = {
     filename: "midi.min.js"
   },
   plugins: debug ? [] : [
+    new ExtractTextPlugin("style.css"),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: {discardComments: {removeAll: true}},
+      canPrint: true
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),

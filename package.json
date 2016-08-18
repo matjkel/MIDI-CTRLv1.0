@@ -19,6 +19,7 @@
   "homepage": "https://github.com/matjkel/MIDI-CTRLv1.0#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "optimize-css-assets-webpack-plugin": "^1.3.0",
     "path": "^0.12.7",
     "webpack": "^1.12.14"
   },
