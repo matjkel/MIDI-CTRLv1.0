@@ -7,8 +7,7 @@
   "description": "An easy-to-use 16-pad MIDI controller that lets you make music in the browser",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
