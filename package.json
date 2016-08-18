@@ -1,6 +1,9 @@
 {
   "name": "MIDI-CTRL",
   "version": "1.0.0",
+  "engines": {
+    "node": "5.5.0"
+  },
   "description": "An easy-to-use 16-pad MIDI controller that lets you make music in the browser",
   "main": "index.js",
   "scripts": {
